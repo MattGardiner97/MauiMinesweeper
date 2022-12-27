@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiMinesweeper.Controls.MineCellControl"
+             HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+    <ContentView.Content>
+
+        <Grid x:Name="MainGrid" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup x:Name="CommonStates">
+                    <VisualState x:Name="Normal">
+                        <VisualState.Setters>
+                            <Setter Property="BackgroundColor" Value="DodgerBlue"/>
+                        </VisualState.Setters>
+                    </VisualState>
+                    <VisualState x:Name="PointerOver">
+                        <VisualState.Setters>
+                            <Setter Property="BackgroundColor" Value="DeepSkyBlue"/>
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+                <VisualStateGroup x:Name="CustomState">
+                    <VisualState x:Name="Revealed">
+                        <VisualState.Setters>
+                            <Setter Property="BackgroundColor" Value="DarkGray"/>
+                        </VisualState.Setters>
+                    </VisualState>
+                    <VisualState x:Name="MineRevealed">
+                        <VisualState.Setters>
+                            <Setter Property="BackgroundColor" Value="Red"/>
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+
+            <Label x:Name="MainLabel" HorizontalOptions="Center" VerticalOptions="Center" FontSize="Large"/>
+
+            <Image x:Name="FlagImage" HorizontalOptions="Center" VerticalOptions="Center" Source="flag.png" IsVisible="false"/>
+            <Image x:Name="MineImage" HorizontalOptions="Center" VerticalOptions="Center" Source="mine.png" IsVisible="false"/>
+        </Grid>
+
+    </ContentView.Content>
+
+    <!--<ContentView.GestureRecognizers>
+        <TapGestureRecognizer NumberOfTapsRequired="1" Buttons="Primary" Tapped="OnPrimaryTapped"/>
+        <TapGestureRecognizer NumberOfTapsRequired="2" Buttons="Primary" Tapped="OnPrimaryDoubleTapped"/>
+        <TapGestureRecognizer NumberOfTapsRequired="1" Buttons="Secondary" Tapped="OnSecondaryTapped"/>
+    </ContentView.GestureRecognizers>-->
+</ContentView>

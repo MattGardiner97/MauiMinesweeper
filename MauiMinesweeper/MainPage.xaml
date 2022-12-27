@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Controls="clr-namespace:MauiMinesweeper.Controls"
+             x:Class="MauiMinesweeper.MainPage"
+             Loaded="OnLoaded">
+
+    <ContentPage.MenuBarItems>
+        <MenuBarItem Text="New Game">
+            <MenuFlyoutItem Text="Easy" Clicked="OnNewEasyGameClicked"/>
+            <MenuFlyoutItem Text="Medium" Clicked="OnNewMediumGameClicked"/>
+            <MenuFlyoutItem Text="Hard" Clicked="OnNewHardGameClicked"/>
+        </MenuBarItem>
+    </ContentPage.MenuBarItems>
+    
+    <StackLayout x:Name="MainLayout">
+        <StackLayout Orientation="Horizontal" x:Name="Header" BackgroundColor="DodgerBlue" HorizontalOptions="FillAndExpand">
+            <Label TextColor="White" FontSize="Title" Padding="5" HorizontalOptions="FillAndExpand" Text="MauiMinesweeper"/>
+
+            <Label x:Name="TimerLabel" TextColor="White" FontSize="Title" Padding="5" HorizontalOptions="FillAndExpand"  HorizontalTextAlignment="Center" Text="00:00"/>
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
+                <Image Source="mine.png" WidthRequest="32" HeightRequest="32" HorizontalOptions="EndAndExpand"/>
+                <Label x:Name="UnmarkedMineCountLabel" TextColor="White" FontSize="Title" Padding="5" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Center"/>
+            </StackLayout>
+
+            <!--<Label TextColor="White" FontSize="Title" Padding="5" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Text="New Game"/>-->
+        </StackLayout >
+
+        <Controls:MineBoardControl x:Name="MineBoardControl" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+
+    </StackLayout>
+</ContentPage>
